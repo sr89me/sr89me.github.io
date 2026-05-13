@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Điện Tử - Kênh Của Bạn</title>
+    <!-- Liên kết file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Profile -->
+        <div class="profile">
+            <img src="https://via.placeholder.com/150" alt="Avatar">
+            <h1>Tên Kênh / Tên Bạn</h1>
+            <p>Chia sẻ kiến thức Kỹ thuật, Lập trình & Điện tử</p>
+        </div>
+
+        <!-- Thanh điều hướng (Tab DIY đang Active) -->
+        <div class="nav-tabs">
+            <a href="index.html">💻 Mô Phỏng Số</a>
+            <a href="diy.html" class="active">🛠️ DIY Điện Tử</a>
+        </div>
+
+        <!-- Liên kết của phần DIY -->
+        <div class="links-grid">
+            <a href="#" class="link-btn" target="_blank">🖨️ Tải File In 3D (STL)</a>
+            <a href="#" class="link-btn" target="_blank">🧾 Danh sách linh kiện (BOM)</a>
+            <a href="https://youtube.com/..." class="link-btn btn-youtube" target="_blank">▶️ Kênh YouTube DIY</a>
+            <a href="#" class="link-btn btn-donate" target="_blank">☕ Donate ủng hộ tôi</a>
+        </div>
+
+        <!-- Video Demo DIY -->
+        <h2 class="section-title">Video DIY Nổi Bật</h2>
+        <div class="video-container">
+            <!-- Đổi ID Video YouTube của bạn tại đây -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video DIY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <footer><p>&copy; 2026 Tên Kênh Của Bạn.</p></footer>
+    </div>
+</body>
+</html>
