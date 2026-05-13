@@ -3,61 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Góc Kỹ Thuật - Demo & DIY Điện Tử</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Điện tử - Mô phỏng số</title>
+    <style>
+        /* === CÀI ĐẶT CHUNG === */
+        :root {
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --primary: #2563eb;
+            --youtube: #ff0000;
+            --donate: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Khung chứa nội dung chính (tối đa 680px để giao diện tập trung) */
+        .container {
+            width: 100%;
+            max-width: 680px;
+        }
+
+        /* === PHẦN PROFILE (Ảnh đại diện & Giới thiệu) === */
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .profile h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .profile p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* === DANH SÁCH NÚT LIÊN KẾT === */
+        .links-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .link-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e5e7eb;
+        }
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Nút màu đặc biệt */
+        .btn-youtube { background-color: var(--youtube); color: white; border: none; }
+        .btn-donate { background-color: var(--donate); color: white; border: none; }
+
+        /* === PHẦN NHÚNG VIDEO YOUTUBE === */
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Tỷ lệ 16:9 của YouTube */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Phần Tiêu đề & Menu -->
-    <header>
-        <h1>Góc Kỹ Thuật của Tôi</h1>
-        <nav>
-            <a href="#about">Giới thiệu</a>
-            <a href="#demos">Bài Demo</a>
-            <a href="#donate">Ủng hộ</a>
-        </nav>
-    </header>
-
-    <!-- Phần Giới thiệu -->
-    <section id="about" class="container">
-        <h2>Xin chào! 👋</h2>
-        <p>Đây là nơi tôi chia sẻ niềm đam mê với lĩnh vực mô phỏng hệ thống, thiết kế và chế tạo (DIY) các mạch điện tử. Hy vọng những dự án này sẽ giúp ích cho bạn.</p>
-    </section>
-
-    <!-- Phần Danh sách Demo -->
-    <section id="demos" class="container">
-        <h2>Các Bài Demo & Dự Án</h2>
-        <div class="grid-layout">
-            
-            <!-- Dự án 1: Mô phỏng -->
-            <div class="card">
-                <h3>Mô phỏng Robot tự cân bằng</h3>
-                <p>Sử dụng phần mềm Proteus / MATLAB để mô phỏng thuật toán PID điều khiển robot hai bánh tự cân bằng trước khi thi công thực tế.</p>
-                <a href="#" class="btn">Xem chi tiết & Video</a>
-            </div>
-
-            <!-- Dự án 2: DIY Điện tử -->
-            <div class="card">
-                <h3>DIY Trạm hàn nhiệt độ thông minh</h3>
-                <p>Thiết kế mạch PCB và lập trình vi điều khiển để tự làm một trạm hàn chỉnh nhiệt độ dùng mũi hàn T12.</p>
-                <a href="#" class="btn">Tải Sơ đồ & Code</a>
-            </div>
-
+    <div class="container">
+        
+        <!-- 1. Cụm Profile -->
+        <div class="profile">
+            <!-- Thay link ảnh bên dưới bằng link ảnh đại diện của bạn -->
+            <img src="https://via.placeholder.com/150" alt="Avatar">
+            <h1>Youtube.com/@sr89me / Ron</h1>
+            <p>Demo HF/LF Electromagnetic Simulation - Demo Embedded Engineering</p>
         </div>
-    </section>
 
-    <!-- Phần Donate -->
-    <section id="donate" class="container donate-section">
-        <h2>Ủng hộ dự án ☕</h2>
-        <p>Nếu bạn thấy các bài viết và file thiết kế hữu ích, hãy mời tôi một ly cà phê để tôi có thêm kinh phí mua linh kiện nhé!</p>
-        <!-- Bạn có thể thay link "#" bên dưới bằng link Buy Me A Coffee, Paypal hoặc link ảnh QR Code Momo -->
-        <a href="#" class="btn donate-btn">Donate via Buy Me a Coffee</a>
-    </section>
+        <!-- 2. Danh sách các nút liên kết -->
+        <div class="links-grid">
+            <a href="https://youtube.com/@sr89me" class="link-btn btn-youtube" target="_blank">
+                ▶️ Đăng ký kênh YouTube
+            </a>
+            <a href="#" class="link-btn" target="_blank">
+                📂 Tải Source Code / Sơ đồ nguyên lý (GitHub)
+            </a>
+            <a href="#" class="link-btn" target="_blank">
+                🤖 Tham gia nhóm trao đổi (Zalo/Facebook)
+            </a>
+            <a href="#" class="link-btn btn-donate" target="_blank">
+                ☕ Ủng hộ / Donate cho dự án
+            </a>
+        </div>
 
-    <!-- Chân trang -->
-    <footer>
-        <p>&copy; 2026 Góc Kỹ Thuật. Tự build từ con số 0.</p>
-    </footer>
+        <!-- 3. Khu vực nhúng Video Mới nhất/Nổi bật -->
+        <h2 class="section-title">Video Nổi Bật</h2>
+        <div class="video-container">
+            <!-- Thay đổi đoạn mã sau "embed/" bằng ID video YouTube của bạn -->
+            <!-- Ví dụ link: youtube.com/watch?v=dQw4w9WgXcQ -> ID là dQw4w9WgXcQ -->
+            <iframe src="https://youtu.be/p0_4NJk7R_Q" 
+                    title="Extraction of Metamaterial Parameters: Negative Refractive Index | Step-by-Step | Matlab online" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 @sr89me.github.io.</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
