@@ -3,51 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Quyên Góp Cá Nhân</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        h1 { color: #0070ba; }
-        p { line-height: 1.6; color: #555; }
-        .donate-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-    </style>
+    <title>Góc Kỹ Thuật - Demo & DIY Điện Tử</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Chào mừng bạn đến với dự án của tôi!</h1>
-        <p>Cảm ơn bạn đã ghé thăm. Dự án này được duy trì hoàn toàn miễn phí. Nếu bạn thấy nó hữu ích và muốn ủng hộ tôi một cốc cà phê để tiếp tục phát triển, bạn có thể quyên góp qua PayPal ở bên dưới.</p>
-        
-        <div class="donate-section">
-            <!-- DÁN MÃ HTML CỦA PAYPAL VÀO DƯỚI ĐÂY -->
-            
-            <form action="https://www.paypal.com/donate" method="post" target="_top">
-                <input type="hidden" name="business" value="sr89.me@gmail.com" />
-                <input type="hidden" name="currency_code" value="USD" />
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-            </form>
+    <!-- Phần Tiêu đề & Menu -->
+    <header>
+        <h1>Góc Kỹ Thuật của Tôi</h1>
+        <nav>
+            <a href="#about">Giới thiệu</a>
+            <a href="#demos">Bài Demo</a>
+            <a href="#donate">Ủng hộ</a>
+        </nav>
+    </header>
 
-            <!-- KẾT THÚC MÃ PAYPAL -->
+    <!-- Phần Giới thiệu -->
+    <section id="about" class="container">
+        <h2>Xin chào! 👋</h2>
+        <p>Đây là nơi tôi chia sẻ niềm đam mê với lĩnh vực mô phỏng hệ thống, thiết kế và chế tạo (DIY) các mạch điện tử. Hy vọng những dự án này sẽ giúp ích cho bạn.</p>
+    </section>
+
+    <!-- Phần Danh sách Demo -->
+    <section id="demos" class="container">
+        <h2>Các Bài Demo & Dự Án</h2>
+        <div class="grid-layout">
+            
+            <!-- Dự án 1: Mô phỏng -->
+            <div class="card">
+                <h3>Mô phỏng Robot tự cân bằng</h3>
+                <p>Sử dụng phần mềm Proteus / MATLAB để mô phỏng thuật toán PID điều khiển robot hai bánh tự cân bằng trước khi thi công thực tế.</p>
+                <a href="#" class="btn">Xem chi tiết & Video</a>
+            </div>
+
+            <!-- Dự án 2: DIY Điện tử -->
+            <div class="card">
+                <h3>DIY Trạm hàn nhiệt độ thông minh</h3>
+                <p>Thiết kế mạch PCB và lập trình vi điều khiển để tự làm một trạm hàn chỉnh nhiệt độ dùng mũi hàn T12.</p>
+                <a href="#" class="btn">Tải Sơ đồ & Code</a>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <!-- Phần Donate -->
+    <section id="donate" class="container donate-section">
+        <h2>Ủng hộ dự án ☕</h2>
+        <p>Nếu bạn thấy các bài viết và file thiết kế hữu ích, hãy mời tôi một ly cà phê để tôi có thêm kinh phí mua linh kiện nhé!</p>
+        <!-- Bạn có thể thay link "#" bên dưới bằng link Buy Me A Coffee, Paypal hoặc link ảnh QR Code Momo -->
+        <a href="#" class="btn donate-btn">Donate via Buy Me a Coffee</a>
+    </section>
+
+    <!-- Chân trang -->
+    <footer>
+        <p>&copy; 2026 Góc Kỹ Thuật. Tự build từ con số 0.</p>
+    </footer>
 
 </body>
 </html>
